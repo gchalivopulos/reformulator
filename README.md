@@ -85,4 +85,10 @@ Symbolic recognition is triggered through the `Match()` command, and its input i
 All symbolic recognition is processed through strings, which have three keywords:
 - `"V(some_handle)"`: this matches a single variable, e.g.: `trigger = Match("V(handle1)*V(handle2)"))`
 - `"E(some_handle)"`: this matches an arbitrary expression, e.g.: `trigger = Match("log(E(x))")`
-- `"C(some_handle)"`: this matches a constant, e.g.: `trigger = Match("C(n)*log(E(x))")`
+- `"C(some_handle)"`: this matches a constant, e.g.: `trigger = Match("C(n)*log(E(x))*V(y)")`
+
+These can be combined fluidly to fine-tune the matching you want to do. For instance, this last command,  `trigger = Match("C(n)*log(E(x))*V(y)")`, will match `log(x^2+3*y)*w`, as well as `3*log(sin(w^2)/(3*x))*y`, but it will not match `3*log(sin(w^2)/(3*x))`, since it's missing the pattern of constant-times-log-time-variable. 
+
+# Order
+
+ASR is invariant to order, so `3*log(sin(w^2)/(3*x))*y` is equivalent to `y*log(sin(w^2)/(3*x))*3`.
