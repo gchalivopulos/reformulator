@@ -91,7 +91,7 @@ These can be combined fluidly to fine-tune the matching you want to do. For inst
 
 # Handles
 
-Each time you define a matching pattern, you must define a handle for the result of the match. This handle is used for future manipulations, and the name of the handle is in no way related to the math in your problem. For instance, I can say: `trigger = Match("C(n)*log(V(x))")`, and this can match `log(y)`. Once this is matched, I can use `x` to refer to `y` in all my reformulator commands. 
+Each time you define a matching pattern, you must define a handle for the result of the match. This handle is used for future manipulations, and the name of the handle is in no way related to the math in your problem. For instance, I can say: `trigger = Match("C(n)*log(V(x))")`, and this can match `log(y)`. Once this is matched, I can use `x` to refer to `y` in all my reformulator commands _that are part of the same rule_. Because the scope of this name is the rule itself, it means you can re-use the same building block for in other rules and you'll get no conflicts.
 
 Keep in mind that this is the reformulator doing all the heavy lifting for you. All you need to know is that any term that matches your pattern can be abstractly manipulated using the handle. The manipulation will be applied in exactly the same way by the Reformulator for all different terms, and the Reformulator will automatically figure out the right names for everything and produce consistent math.
 
