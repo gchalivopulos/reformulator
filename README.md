@@ -29,7 +29,7 @@ m.maximize("log(x^2)+y^2")
 m.set("log(x^3)").to_at_least("y")
 ```
 
-Printing this (`print(m)`) gives us:
+Printing this with `print(m)` gives us:
 
 ```
 Structure : NLP
@@ -107,3 +107,23 @@ Keep in mind that this is the reformulator doing all the heavy lifting for you. 
 ### Commutativity
 
 ASR is invariant to order of expressions, so `3*log(sin(w^2)/(3*x))*y` is equivalent to `y*log(sin(w^2)/(3*x))*3`.
+
+### List of commands (incomplete)
+```python
+Match("pattern")
+```
+```python
+IsMaybeFeasible("logical_statement")
+```
+```python
+IsFullyFeasible("logical_statement")
+```
+
+### Object types
+- Triggers
+- Filters
+- Rules
+- Mods
+
+### Operators
+To be added.
