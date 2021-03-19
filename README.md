@@ -1,6 +1,6 @@
 # Octeract Reformulator
 
-The Reformulator is a tool that automatically generates and manipulates optimisation mathematics.
+The Reformulator is a tool that automatically generates and manipulates optimisation mathematics. In this repository you can find example files and reformulation snippets that you can use to produce complicated reformulations automatically.
 
 # Installation
 1. Download and install [Octeract Engine](www.octeract.com) for your OS.
