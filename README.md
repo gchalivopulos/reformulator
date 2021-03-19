@@ -83,9 +83,6 @@ where the reformulator only added a constraint to ensure that `x^3>=0` because o
 Symbolic recognition is triggered through the `Match()` command, and its input is a string. Keep in mind that this works term-wise, i.e. the Reformulator will go through all terms in your problem and try to match this pattern.
 
 All symbolic recognition is processed through strings, which have three keywords:
-- `"V(some_handle)"`: this matches a single variable, e.g.: 
-<br>`trigger = Match("V(handle1)*V(handle2)"))`
-- `"E(some_handle)"`: this matches an arbitrary expression, e.g.:
-<br>`trigger = Match("log(E(x))")`
-- `"C(some_handle)"`: this matches a constant, e.g.:
-<br>`trigger = Match("C(n)*log(E(x))")`
+- `"V(some_handle)"`: this matches a single variable, e.g.: `trigger = Match("V(handle1)*V(handle2)"))`
+- `"E(some_handle)"`: this matches an arbitrary expression, e.g.: `trigger = Match("log(E(x))")`
+- `"C(some_handle)"`: this matches a constant, e.g.: `trigger = Match("C(n)*log(E(x))")`
