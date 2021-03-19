@@ -28,3 +28,50 @@ m = Model()
 m.maximize("log(x^2)+y^2")
 m.set("log(x^3)").to_at_least("y")
 ```
+
+Printing this (`print(m)`) gives us:
+
+```
+Structure : NLP
+Convexity : nonconvex
+------------------------------------------
+var y >= -1.79769e+308, <= 1.79769e+308;
+var x >= -1.79769e+308, <= 1.79769e+308;
+
+maximize obj : (y)^(2)+log((x)^(2))+0;
+
+subject to
+
+constraint : log((x)^(3))+-1.0*y+0.0 >= 0;
+------------------------------------------
+```
+
+If I want to add constraints such that _any_ logarithm with an expression that _might_ take negative values is not allowed to do so, I can simply do:
+
+```
+my_trigger = Match("log(E(fun))")
+my_filters = IsMaybeFeasible("fun<=-1.e-12")
+my_actions = AddConstraint("con1", "fun>=0")
+my_mod = (my_trigger & my_filters).then(my_actions)
+m.apply_mod(my_mod)
+```
+
+This results in the following model:
+
+```
+Structure : NLP
+Convexity : nonconvex
+------------------------------------------
+var y >= -1.79769e+308, <= 1.79769e+308;
+var x >= -1.79769e+308, <= 1.79769e+308;
+
+maximize obj : (y)^(2)+log((x)^(2))+0;
+
+subject to
+
+constraint : log((x)^(3))+-1.0*y+0.0 >= 0;
+con1_0 : (x)^(3)+0.0 >= 0;
+------------------------------------------
+```
+
+where the reformulator only added a constraint to ensure that `x^3>=0` because of `log(x^3)`, while it ignored `log(x^2)` because we told it to.
