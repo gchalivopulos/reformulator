@@ -20,7 +20,7 @@ The core technology in the Reformulator is what we call Abstract Symbolic Recogn
 
 Let's say we have a toy model:
 
-```
+```python
 from octeract import *
 
 m = Model()
