@@ -89,6 +89,12 @@ All symbolic recognition is processed through strings, which have three keywords
 
 These can be combined fluidly to fine-tune the matching you want to do. For instance, this last command,  `trigger = Match("C(n)*log(E(x))*V(y)")`, will match `log(x^2+3*y)*w`, as well as `3*log(sin(w^2)/(3*x))*y`, but it will not match `3*log(sin(w^2)/(3*x))`, since it's missing the pattern of constant-times-log-time-variable. 
 
+# Handles
+
+Each time you define a matching pattern, you must define a handle for the result of the match. This handle is used for future manipulations, and the name of the handle is in no way related to the math in your problem. For instance, I can say: `trigger = Match("C(n)*log(V(x))")`, and this can match `log(y)`. Once this is matched, I can use `x` to refer to `y` in all my reformulator commands. 
+
+Keep in mind that this is the reformulator doing all the heavy lifting for you. All you need to know is that any term that matches your pattern can be abstractly manipulated using the handle. The manipulation will be applied in exactly the same way by the Reformulator for all different terms, and the Reformulator will automatically figure out the right names for everything and produce consistent math.
+
 # Order
 
-ASR is invariant to order, so `3*log(sin(w^2)/(3*x))*y` is equivalent to `y*log(sin(w^2)/(3*x))*3`.
+ASR is invariant to order of expressions, so `3*log(sin(w^2)/(3*x))*y` is equivalent to `y*log(sin(w^2)/(3*x))*3`.
