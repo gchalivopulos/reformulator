@@ -48,7 +48,7 @@ constraint : log((x)^(3))+-1.0*y+0.0 >= 0;
 
 If I want to add constraints such that _any_ logarithm with an expression that _might_ take negative values is not allowed to do so, I can simply do:
 
-```
+```python
 my_trigger = Match("log(E(fun))")
 my_filters = IsMaybeFeasible("fun<=-1.e-12")
 my_actions = AddConstraint("con1", "fun>=0")
