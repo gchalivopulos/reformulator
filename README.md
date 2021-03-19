@@ -15,3 +15,16 @@ That's it! You can now use the Reformulator Python API!
 
 # What you can do
 The core technology in the Reformulator is what we call Abstract Symbolic Recognition (ASR). This means that you can e.g. say "find all nonlinear terms that look like `log(f(x))`, and do stuff to `f(x)` and/or the original term". You can also use filters to refine the results of the ASR.
+
+# Example
+
+Let's say we have a toy model:
+
+```
+from octeract import *
+
+m = Model()
+
+m.maximize("log(x^2)+y^2")
+m.set("log(x^3)").to_at_least("y")
+```
