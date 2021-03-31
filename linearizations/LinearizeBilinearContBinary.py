@@ -27,7 +27,7 @@ add_parameters = AddParameter('nb_LB','nb','lb') + AddParameter('nb_UB','nb','ub
 substitute_term = SubWith('w_xy')
 add_constraint0 = AddConstraint('nb_LB*b-w_xy <= 0')
 add_constraint1 = AddConstraint('w_xy-nb_UB*b <= 0')
-add_constraint2 = AddConstraint('w_xy-nb-nb_LB*(1-b) <= 0')
+add_constraint2 = AddConstraint('w_xy-nb+nb_LB*(1-b) <= 0')
 add_constraint3 = AddConstraint('-w_xy+nb-nb_UB*(1-b) <= 0')
 
 add_constraints = add_constraint0 + add_constraint1 + add_constraint2 + add_constraint3
