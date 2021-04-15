@@ -18,7 +18,6 @@ my_filter = (IsBinary('x') & IsBinary('y'))
 # Specify how to change the model
 # Add auxiliary variable with the same bounds as x*y
 add_auxiliary_var = AddVariableSpan('w_xy','x*y')
-# Add parameters for the bounds of the continuous variable
 substitute_term = SubWith('w_xy')
 add_constraint0 = AddConstraint('w_xy <= x')
 add_constraint1 = AddConstraint('w_xy <= y')
