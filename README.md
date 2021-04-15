@@ -130,5 +130,6 @@ IsFullyFeasible("logical_statement")
 #### Logical AND
 ```python
 &
+# example:
+my_filter = (IsBinary(x) & IsBinary(y))
 ```
-example: `my_filter = (IsBinary(x) & IsBinary(y))`
