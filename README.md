@@ -136,7 +136,7 @@ my_filter = (IsBinary(x) & IsBinary(y))
 
 #### Logical NOT
 ```python
-&
+~
 # example:
 my_filter = (IsBinary(x) & ~IsBinary(y))
 ```
