@@ -141,9 +141,9 @@ my_filter = (IsBinary(x) & IsBinary(y))
 my_filter = (IsBinary(x) & ~IsBinary(y))
 ```
 
-### Action Operators
+### Mod Operators
 
-#### Chain actions
+#### Chain modifications to the problem
 ```python
 +
 # example:
