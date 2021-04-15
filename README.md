@@ -118,6 +118,33 @@ IsMaybeFeasible("logical_statement")
 ```python
 IsFullyFeasible("logical_statement")
 ```
+```python
+IsBinary("variable_handle")
+```
+```python
+IsInteger("variable_handle")
+```
+```python
+IsUnivariate("expression_handle")
+```
+```python
+AddVariable("variable_name")
+```
+```python
+AddBinaryVariable("variable_name")
+```
+```python
+AddIntegerVariable("variable_name")
+```
+```python
+AddVariableSpan("variable_name","expression_to_produce_bounds_for_the_new_var")
+```
+```python
+AddConstraint("constraint_name","constraint_string")
+```
+```python
+SubWith("expression_that_will_replace_my_match")
+```
 
 ### Object types
 - Triggers
