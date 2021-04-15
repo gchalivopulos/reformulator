@@ -140,3 +140,12 @@ my_filter = (IsBinary(x) & IsBinary(y))
 # example:
 my_filter = (IsBinary(x) & ~IsBinary(y))
 ```
+
+### Action Operators
+
+#### Chain actions
+```python
++
+# example:
+my_actions = substitute_term + add_constraint1 + add_constraint2
+```
