@@ -10,7 +10,7 @@ from octeract import *
 # =============================================
 
 # Define symbolic trigger
-my_trigger = Match('V(x)*V(y)') 
+my_trigger = Match('C(n)*V(x)*V(y)') 
 
 # Filter binaries 
 my_filter = (IsBinary('x') & IsBinary('y'))
@@ -18,7 +18,7 @@ my_filter = (IsBinary('x') & IsBinary('y'))
 # Specify how to change the model
 # Add auxiliary variable with the same bounds as x*y
 add_auxiliary_var = AddBinaryVariable('w_xy')
-substitute_term = SubWith('w_xy')
+substitute_term = SubWith('n*w_xy')
 add_constraint0 = AddConstraint('w_xy <= x')
 add_constraint1 = AddConstraint('w_xy <= y')
 add_constraint2 = AddConstraint('x + y - 1 <= w_xy')

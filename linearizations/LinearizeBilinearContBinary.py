@@ -10,7 +10,7 @@ from octeract import *
 # =============================================
 
 # Define symbolic trigger
-my_trigger = Match('V(x)*V(y)') 
+my_trigger = Match('C(n)*V(x)*V(y)') 
 
 # Filter binaries and account for permutations - we bind binary to b and non-binary to nb
 xbin_filter = (IsBinary('x') & ~ IsBinary('y') & Bind('x', 'b') & Bind('y', 'nb'))
@@ -24,7 +24,7 @@ my_filter = (xbin_filter | ybin_filter)
 add_auxiliary_var = AddVariableSpan('w_xy','b*nb')
 # Add parameters for the bounds of the continuous variable
 add_parameters = AddParameter('nb_LB','nb','lb') + AddParameter('nb_UB','nb','ub')
-substitute_term = SubWith('w_xy')
+substitute_term = SubWith('n*w_xy')
 add_constraint0 = AddConstraint('nb_LB*b-w_xy <= 0')
 add_constraint1 = AddConstraint('w_xy-nb_UB*b <= 0')
 add_constraint2 = AddConstraint('w_xy-nb+nb_LB*(1-b) <= 0')
