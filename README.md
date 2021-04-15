@@ -125,5 +125,10 @@ IsFullyFeasible("logical_statement")
 - Rules
 - Mods
 
-### Operators
-To be added.
+### Filter Operators
+
+#### Logical AND
+```python
+&
+```
+example: `my_filter = (IsBinary(x) & IsBinary(y))`
