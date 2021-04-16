@@ -2,7 +2,7 @@
 
 The Reformulator is a tool that automatically generates and manipulates optimisation mathematics. In this repository you can find example files and reformulation snippets that you can use to produce complicated reformulations automatically.
 
-Note: The IsBinary, IsInteger, AddBinaryVariable, and AddIntegerVariable commands will be available on Octeract Engine 2.0.1 which will be out on 21 April 2021.
+**Note**: The `IsBinary`, `IsInteger`, `AddBinaryVariable`, and `AddIntegerVariable` commands will be available on Octeract Engine 2.0.1 which will be out on 21 April 2021.
 
 ## Community contributions
 
