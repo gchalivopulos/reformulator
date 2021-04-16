@@ -98,7 +98,7 @@ C("some_handle")
 ```
 this matches a constant, e.g.: `trigger = Match("C(n)*log(E(x))*V(y)")`
 
-These can be combined fluidly to fine-tune the matching you want to do. For instance, this last command,  `trigger = Match("C(n)*log(E(x))*V(y)")`, will match `log(x^2+3*y)*w`, as well as `3*log(sin(w^2)/(3*x))*y`, but it will not match `3*log(sin(w^2)/(3*x))`, since it's missing the pattern of constant-times-log-time-variable. 
+These can be combined fluidly to fine-tune the matching you want to do. For instance, this last command,  `trigger = Match("C(n)*log(E(x))*V(y)")`, will match `log(x^2+3*y)*w`, as well as `3*log(sin(w^2)/(3*x))*y`, but it will not match `3*log(sin(w^2)/(3*x))`, since it's missing the pattern of constant-times-log-times-variable. 
 
 ### Handles
 
