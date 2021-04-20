@@ -2,6 +2,8 @@
 
 The Reformulator is a tool that automatically generates and manipulates optimisation mathematics. In this repository you can find example files and reformulation snippets that you can use to produce complicated reformulations automatically.
 
+**Note**: The `IsBinary`, `IsInteger`, `AddBinaryVariable`, and `AddIntegerVariable` commands will be available on Octeract Engine 2.0.1 which will be out on 21 April 2021.
+
 ## Community contributions
 
 If you have a cool reformulation that you want to share with the world, just create a PR and we'll merge it in.
@@ -96,7 +98,7 @@ C("some_handle")
 ```
 this matches a constant, e.g.: `trigger = Match("C(n)*log(E(x))*V(y)")`
 
-These can be combined fluidly to fine-tune the matching you want to do. For instance, this last command,  `trigger = Match("C(n)*log(E(x))*V(y)")`, will match `log(x^2+3*y)*w`, as well as `3*log(sin(w^2)/(3*x))*y`, but it will not match `3*log(sin(w^2)/(3*x))`, since it's missing the pattern of constant-times-log-time-variable. 
+These can be combined fluidly to fine-tune the matching you want to do. For instance, this last command,  `trigger = Match("C(n)*log(E(x))*V(y)")`, will match `log(x^2+3*y)*w`, as well as `3*log(sin(w^2)/(3*x))*y`, but it will not match `3*log(sin(w^2)/(3*x))`, since it's missing the pattern of constant-times-log-times-variable. 
 
 ### Handles
 
@@ -118,6 +120,33 @@ IsMaybeFeasible("logical_statement")
 ```python
 IsFullyFeasible("logical_statement")
 ```
+```python
+IsBinary("variable_handle")
+```
+```python
+IsInteger("variable_handle")
+```
+```python
+IsUnivariate("expression_handle")
+```
+```python
+AddVariable("variable_name")
+```
+```python
+AddBinaryVariable("variable_name")
+```
+```python
+AddIntegerVariable("variable_name")
+```
+```python
+AddVariableSpan("variable_name","expression_to_produce_bounds_for_the_new_var")
+```
+```python
+AddConstraint("constraint_name","constraint_string")
+```
+```python
+SubWith("expression_that_will_replace_my_match")
+```
 
 ### Object types
 - Triggers
@@ -125,5 +154,27 @@ IsFullyFeasible("logical_statement")
 - Rules
 - Mods
 
-### Operators
-To be added.
+### Filter Operators
+
+#### Logical AND
+```python
+&
+# example:
+my_filter = (IsBinary(x) & IsBinary(y))
+```
+
+#### Logical NOT
+```python
+~
+# example:
+my_filter = (IsBinary(x) & ~IsBinary(y))
+```
+
+### Mod Operators
+
+#### Chain modifications to the problem
+```python
++
+# example:
+my_actions = substitute_term + add_constraint1 + add_constraint2
+```
