@@ -16,7 +16,7 @@ sub = SubWith("w")
 add_constraint1 = AddConstraint("fraction", "f2*w == f1")
 
 # Enforce f2 != 0 for consistency
-add_constraint2 = AddConstraint("denominator", "abs(f2) > 1.e-6")
+add_constraint2 = AddConstraint("denominator", "abs(f2) > 0.000001")
 
 # Chain actions
 my_actions = add_auxiliary_var + sub + add_constraint1 + add_constraint2
