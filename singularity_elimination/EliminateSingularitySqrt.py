@@ -4,7 +4,7 @@ from octeract import *
 # If the function inside a square root term can be negative,
 # add a constraint to ensure that it's always positive.
 
-# Symbolic match for any term of type constant*log(f)
+# Symbolic match for any term of type constant*sqrt(f)
 my_match = Match("C(n)*sqrt(E(f))")
 
 # Only select the ones that might cross into negative domains
