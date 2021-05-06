@@ -1,6 +1,6 @@
 from octeract import *
 
-# Eliminate domain-based singularities for all logarithmic terms
+# Eliminate domain-based singularities for all logarithmic terms of type Var*log(f)
 # If the function inside a logarithmic term can be negative,
 # add a constraint to ensure that it's always positive.
 
