@@ -8,7 +8,7 @@ If you have a cool reformulation that you want to share with the world, just cre
 
 ## Installation
 1. Download and install [Octeract Engine](www.octeract.com) for your OS.
-2. Install Python 3.7+
+2. Install Python 3.7
 3. Create a Python file and type `from octeract import *`
 
 That's it! You can now use the Reformulator Python API!
