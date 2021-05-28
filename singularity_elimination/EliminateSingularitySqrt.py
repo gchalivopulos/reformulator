@@ -11,6 +11,6 @@ my_match = Match("C(n)*sqrt(E(f))")
 my_filter = IsMaybeFeasible("f <= -1.e-12")
 
 # Add a constraint to enforce positivity
-my_actions = AddConstraint("f >= 1.e-6")
+my_actions = AddConstraint("f >= 0.000001")
 
 EliminateSingularitySqrtMod = (my_match & my_filter).then(my_actions)
